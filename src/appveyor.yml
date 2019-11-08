@@ -1,0 +1,34 @@
+﻿deploy:
+  - provider: NuGet
+    server: https://nuget.pkg.github.com/mrsalty/index.json
+    artifact: /.nupkg/
+    username: mrsalty
+    api_key:
+      secure: zK+6ab7J5ospEKwXQ5Cd2PYGOTro+KKWYnyKinEO8DsmnmJr977ClTGVnBbZ4Zxd
+    skip_symbols: false
+    artifact: /.*\.nupkg/
+
+    version: '{build}'
+pull_requests:
+  do_not_increment_build_number: true
+branches:
+  only:
+  - master
+clone_depth: 1
+nuget:
+  disable_publish_on_pr: true
+build_script:
+- ps: .\Build.ps1
+test: off
+artifacts:
+- path: .\artifacts\**\*.nupkg
+  name: NuGet
+deploy:
+- provider: NuGet
+  server: https://nuget.pkg.github.com/mrsalty/index.json
+  api_key:
+    secure: zK+6ab7J5ospEKwXQ5Cd2PYGOTro+KKWYnyKinEO8DsmnmJr977ClTGVnBbZ4Zxd
+  skip_symbols: true
+  on:
+    branch: master
+    appveyor_repo_tag: true
