@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Booster</id>
+        <version>$version$</version>
+        <description>A basic AWS SNS SQS pub/sub messaging tool</description>
+        <authors>mrsalty</authors>
+		<projectUrl>https://github.com/mrsalty/booster</projectUrl>
+    </metadata>
+</package>
