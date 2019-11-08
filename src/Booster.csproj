@@ -5,6 +5,9 @@
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject />
+    <Authors>M Cunietti</Authors>
+    <Company />
+    <Version>0.0.1</Version>
   </PropertyGroup>
   
   <ItemGroup>
