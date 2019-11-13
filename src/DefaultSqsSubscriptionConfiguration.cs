@@ -1,6 +1,6 @@
 ﻿namespace Booster
 {
-    public class DefaultSqsSubscriptionConfiguration : SqsSubscriptionConfiguration
+    public class DefaultSqsSubscriptionConfiguration<T> : SqsSubscriptionConfiguration<T> where T : IEvent
     {
         public const int DefaultWaitTimeSeconds = 5;
 

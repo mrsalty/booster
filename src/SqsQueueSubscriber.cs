@@ -10,18 +10,18 @@ using Newtonsoft.Json;
 
 namespace Booster
 {
-    public class SqsQueueSubscriber
+    public class SqsQueueSubscriber<T> where T : IEvent
     {
         private readonly IAmazonSQS _sqsClient;
         private readonly IServiceProvider _serviceProvider;
-        private readonly SqsSubscriptionConfiguration _sqsSubscriptionConfiguration;
+        private readonly SqsSubscriptionConfiguration<T> _sqsSubscriptionConfiguration;
         private readonly CancellationTokenSource _cancellationTokenSource;
         private readonly List<string> _messageAttributeNames;
 
         public SqsQueueSubscriber(
             IAmazonSQS sqsClient,
             IServiceProvider serviceProvider,
-            SqsSubscriptionConfiguration sqsSubscriptionConfiguration,
+            SqsSubscriptionConfiguration<T> sqsSubscriptionConfiguration,
             List<string> messageAttributeNames,
             CancellationTokenSource cancellationTokenSource)
         {

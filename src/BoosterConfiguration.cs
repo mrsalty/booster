@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Amazon.SQS;
 
 namespace Booster
 {
@@ -17,18 +15,12 @@ namespace Booster
     {
         public IServiceProvider ServiceProvider { get; }
 
-        public Dictionary<string, SqsSubscriptionConfiguration> SqsSubscriptions { get; }
+        public List<Type> SqsSubscriptionTypes { get; }
 
-        public Dictionary<string, Func<SqsSubscriptionConfiguration, IAmazonSQS, BoosterConfiguration, Task>> SqsSubscriptionFuncsDictionary { get; }
-
-        public BoosterConfiguration(IServiceProvider serviceProvider,
-            Dictionary<string, SqsSubscriptionConfiguration> sqsSubscriptions,
-            Dictionary<string, Func<SqsSubscriptionConfiguration, IAmazonSQS, BoosterConfiguration, Task>> sqsSubscriptionFuncs
-        )
+        public BoosterConfiguration(IServiceProvider serviceProvider, List<Type> sqsSubscriptionTypes)
         {
             ServiceProvider = serviceProvider;
-            SqsSubscriptions = sqsSubscriptions;
-            SqsSubscriptionFuncsDictionary = sqsSubscriptionFuncs;
+            SqsSubscriptionTypes = sqsSubscriptionTypes;
         }
     }
 }
