@@ -3,6 +3,8 @@ branches:
   # whitelist
   only:
     - master
+    
+image: Visual Studio 2019
 
 assembly_info:
   patch: true
